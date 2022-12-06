@@ -42,7 +42,6 @@ func (s *Stack) Peek() string {
 }
 
 func ParseInputFile(f *os.File) (int, []string, []string) {
-
 	scanner := bufio.NewScanner(f)
 
 	var cratesTemplate []string
@@ -71,13 +70,12 @@ func ParseInputFile(f *os.File) (int, []string, []string) {
 
 func MakeCrateStacks(amount int, cratesTemplate []string) []Stack {
 	var crateStacks = make([]Stack, amount)
-	// prepare crate stacks
+
 	for i := len(cratesTemplate) - 1; i >= 0; i-- {
 		crates := strings.Split(cratesTemplate[i], " ")
 		stackIndex := 0
 		whitespaceIndex := 0
 		for _, crate := range crates {
-			// fmt.Println("Crate: ", crate, "(lenCrate, stackIndex, whitespaceIndex)", len(crate), stackIndex, whitespaceIndex)
 			if len(crate) > 1 {
 				crateStacks[stackIndex].Push(crate)
 				stackIndex++
@@ -106,22 +104,22 @@ func GetTopRowOfCrateStacks(crateStacks []Stack) string {
 }
 
 func MoveCratesWithCrateMover9000(crateStacks *[]Stack, amount int, source int, target int) {
-	for m := 0; m < amount; m++ {
+	for c := 0; c < amount; c++ {
 		crate := (*crateStacks)[source].Pop()
 		(*crateStacks)[target].Push(crate)
 	}
 }
 
 func MoveCratesWithCrateMover9001(crateStacks *[]Stack, amount int, source int, target int) {
-	var multiCrate = make([]string, amount)
+	var crateGroup = make([]string, amount)
 
-	for m := 0; m < amount; m++ {
+	for c := 0; c < amount; c++ {
 		crate := (*crateStacks)[source].Pop()
-		multiCrate[amount-1-m] = crate
+		crateGroup[amount-1-c] = crate
 	}
 
-	for m := 0; m < amount; m++ {
-		(*crateStacks)[target].Push(multiCrate[m])
+	for c := 0; c < amount; c++ {
+		(*crateStacks)[target].Push(crateGroup[c])
 	}
 }
 
