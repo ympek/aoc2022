@@ -21,6 +21,11 @@ case $1 in
   4)
     npx ts-node-esm day4/main.ts
     ;;
+  5)
+    pushd day5 > /dev/null
+    go run main.go
+    popd > /dev/null
+    ;;
   *)
     echo "Invalid or not yet finished day."
     ;;

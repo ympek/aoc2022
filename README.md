@@ -23,7 +23,7 @@ to run the code from a given day. Example: `./day.sh 3` will run the code from `
 | Day 2: Rock Paper Scissors  | JavaScript (Node.js) |
 | Day 3: Rucksack Reorganization  | Go |
 | Day 4: Camp Cleanup  | TypeScript (Node.js) |
-| Day 5: Supply Stacks  | ???? |
+| Day 5: Supply Stacks  | Go |
 
 ![Bernie Sanders meme](bernie.png)
 
