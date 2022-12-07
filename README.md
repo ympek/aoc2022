@@ -24,6 +24,7 @@ to run the code from a given day. Example: `./day.sh 3` will run the code from `
 | Day 3: Rucksack Reorganization  | Go |
 | Day 4: Camp Cleanup  | TypeScript (Node.js) |
 | Day 5: Supply Stacks  | Go |
+| Day 6: Tuning Trouble  | Ruby |
 
 ![Bernie Sanders meme](bernie.png)
 

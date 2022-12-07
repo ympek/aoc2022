@@ -26,6 +26,9 @@ case $1 in
     go run main.go
     popd > /dev/null
     ;;
+  6)
+    ruby day6/main.rb
+    ;;
   *)
     echo "Invalid or not yet finished day."
     ;;
