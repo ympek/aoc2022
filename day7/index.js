@@ -62,8 +62,7 @@ try {
     }
 
     if (line.startsWith(CD_UP_PREFIX)) {
-      const dirName = line.slice(CD_UP_PREFIX.length);
-      moveOut(dirName);
+      moveOut();
       continue;
     }
 
