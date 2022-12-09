@@ -29,6 +29,9 @@ case $1 in
   6)
     ruby day6/main.rb
     ;;
+  7)
+    node day7
+    ;;
   *)
     echo "Invalid or not yet finished day."
     ;;
