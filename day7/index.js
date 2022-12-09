@@ -6,13 +6,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 let filehandle;
 
-const files = [];
-let cwd = "";
-
 function toInteger(s) {
   s = parseInt(s);
   return isNaN(s) ? 0 : s;
 };
+
+let cwd = "";
 
 function moveIn(dir) {
   cwd += "/" + dir;
@@ -75,18 +74,13 @@ try {
     }
 
     const [size, name] = line.split(" ");
-    files.push({ 
-      path: cwd + "/" + name,
-      size: size
-    });
+    addToSum(cwd + "/" + name, toInteger(size));
   }
 
-  files.forEach( file => addToSum(file.path, toInteger(file.size)));
-
   const sizesArray = Object.values(sizes);
-
   const filtered = sizesArray.filter(s => s <= 100000);
   const sum = filtered.reduce((prev, curr) => prev + curr);
+
   console.log("Answer to part 1: ", sum);
 
   const filesystemCapacity = 70000000;
