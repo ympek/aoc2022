@@ -38,6 +38,9 @@ case $1 in
     ./a.out
     popd > /dev/null
     ;;
+  9)
+    ruby day9/main.rb
+    ;;
   *)
     echo "Invalid or not yet finished day."
     ;;
