@@ -32,6 +32,12 @@ case $1 in
   7)
     node day7
     ;;
+  8)
+    pushd day8 > /dev/null
+    g++ main.cpp
+    ./a.out
+    popd > /dev/null
+    ;;
   *)
     echo "Invalid or not yet finished day."
     ;;

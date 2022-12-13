@@ -1,1 +1,3 @@
 node_modules
+.ccls-cache
+a.out
