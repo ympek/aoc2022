@@ -41,6 +41,11 @@ case $1 in
   9)
     ruby day9/main.rb
     ;;
+  10)
+    pushd day10 > /dev/null
+    go run main.go
+    popd > /dev/null
+    ;;
   *)
     echo "Invalid or not yet finished day."
     ;;
