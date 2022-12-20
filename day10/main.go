@@ -9,9 +9,10 @@ import (
 )
 
 var signalStrengthSum int
+var crtRender string
 
 func interrupt(pc *int, regval *int) {
-	fmt.Println("during cycle number ", *pc, "X is ", *regval)
+	draw(pc, regval)
 	if *pc%40 == 20 {
 		signalStrength := (*pc) * (*regval)
 		signalStrengthSum += signalStrength
@@ -31,6 +32,21 @@ func addx(pc *int, regval *int, x int) {
 	*regval += x
 }
 
+func draw(pc *int, spritePos *int) {
+	drawingPos := *pc % 40
+
+	// had off-by one error here, a classic
+	if drawingPos == *spritePos || drawingPos == *spritePos+1 || drawingPos == *spritePos+2 {
+		crtRender += "#"
+	} else {
+		crtRender += "."
+	}
+
+	if drawingPos == 0 {
+		crtRender += "\n"
+	}
+}
+
 func main() {
 	inputFile, err := os.Open("./input")
 
@@ -40,23 +56,25 @@ func main() {
 
 	signalStrengthSum = 0
 	pc := 1
-	registerValue := 1
+	spritePos := 1 // also known as 'X register content'
 
 	scanner := bufio.NewScanner(inputFile)
 	for scanner.Scan() {
 		line := scanner.Text()
 
 		if strings.HasPrefix(line, "noop") {
-			noop(&pc, &registerValue)
+			noop(&pc, &spritePos)
 		}
 
 		if strings.HasPrefix(line, "addx") {
 			pair := strings.Split(line, " ")
 			x, _ := strconv.Atoi(pair[1])
-			addx(&pc, &registerValue, x)
+			addx(&pc, &spritePos, x)
 		}
 	}
 
-	fmt.Println("Answer to part 1: ", signalStrengthSum)
-	fmt.Println("Answer to part 2: ", 0)
+	fmt.Println("Answer to part 1:", signalStrengthSum)
+	fmt.Println("Answer to part 2: squint your eyes to see it below (≖_≖ )")
+	fmt.Println()
+	fmt.Println(crtRender)
 }

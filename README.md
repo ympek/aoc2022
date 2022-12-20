@@ -28,6 +28,7 @@ to run the code from a given day. Example: `./day.sh 3` will run the code from `
 | Day 7: No Space Left On Device | JavaScript (Node.js) |
 | Day 8: Treetop Tree House | C++ |
 | Day 9: Rope Bridge | Ruby |
+| Day 10: Cathode-Ray Tube | Go |
 
 ![Bernie Sanders meme](bernie.png)
 
