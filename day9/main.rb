@@ -40,7 +40,8 @@ class RopeBridgeSolver
 
   def solve
     @input.each_line do |line|
-      direction, steps = line.split(" ") i = steps.to_i
+      direction, steps = line.split(" ")
+      i = steps.to_i
 
       while i != 0 do
         move_head(direction)

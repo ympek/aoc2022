@@ -42,7 +42,7 @@ case $1 in
     ruby day9/main.rb
     ;;
   10)
-    pushd day10 > /dev/null
+    pushd dayy10 > /dev/null
     go run main.go
     popd > /dev/null
     ;;
